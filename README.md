@@ -48,6 +48,4 @@ $
 ```
 
 ## Authors
-[Miguel Pacheco](https://github.com/Miguel22247)
-[Ezequiel Martinez](https://github.com/ezedksl)
-[Gabriel Prochnau](https://github.com/)
+[Francisco J. Hernández](https://github.com/parzival-p1)
