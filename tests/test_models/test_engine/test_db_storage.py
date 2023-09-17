@@ -22,32 +22,32 @@ class Test_pep8(unittest.TestCase):
         pep8style = pep8.StyleGuide(quiet=True)
         result = pep8style.check_files(['models/engine/db_storage.py'])
         self.assertEqual(result.total_errors, 0,
-                         "Found code style errors (and warnings).")
+                        "Found code style errors (and warnings).")
 
 
 class TestDBStorage(unittest.TestCase):
     '''this will test the database storage'''
 
     @unittest.skipIf(getenv("HBNB_TYPE_STORAGE") != 'db',
-                     "can't run if storage is file")
+                    "can't run if storage is file")
     def setUp(self):
         """set up for test"""
         if getenv("HBNB_TYPE_STORAGE") == "db":
             self.db = MySQLdb.connect(getenv("HBNB_MYSQL_HOST"),
-                                      getenv("HBNB_MYSQL_USER"),
-                                      getenv("HBNB_MYSQL_PWD"),
-                                      getenv("HBNB_MYSQL_DB"))
+                                    getenv("HBNB_MYSQL_USER"),
+                                    getenv("HBNB_MYSQL_PWD"),
+                                    getenv("HBNB_MYSQL_DB"))
             self.cursor = self.db.cursor()
 
     @unittest.skipIf(getenv("HBNB_TYPE_STORAGE") != 'db',
-                     "can't run if storage is file")
+                    "can't run if storage is file")
     def tearDown(self):
         """at the end of the test this will tear it down"""
         if getenv("HBNB_TYPE_STORAGE") == "db":
             self.db.close()
 
     @unittest.skipIf(getenv("HBNB_TYPE_STORAGE") != 'db',
-                     "can't run if storage is file")
+                    "can't run if storage is file")
     def test_attributes_DBStorage(self):
         """Tests for class attributes"""
         self.assertTrue(hasattr(DBStorage, 'all'))
@@ -59,7 +59,7 @@ class TestDBStorage(unittest.TestCase):
         self.assertTrue(hasattr(DBStorage, '_DBStorage__session'))
 
     @unittest.skipIf(getenv("HBNB_TYPE_STORAGE") != 'db',
-                     "can't run if storage is file")
+                    "can't run if storage is file")
     def test_new_DBStorage(self):
         """Tests for new() method"""
         nb = self.cursor.execute("SELECT COUNT(*) FROM states")
@@ -69,7 +69,7 @@ class TestDBStorage(unittest.TestCase):
         self.assertEqual(nb1 - nb, 0)
 
     @unittest.skipIf(getenv("HBNB_TYPE_STORAGE") != 'db',
-                     "can't run if storage is file")
+                        "can't run if storage is file")
     def test_reload(self):
         """Test for reload()"""
         obj = DBStorage()

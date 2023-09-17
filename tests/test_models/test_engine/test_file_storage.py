@@ -22,7 +22,7 @@ class Test_pep8(unittest.TestCase):
         pep8style = pep8.StyleGuide(quiet=True)
         result = pep8style.check_files(['models/engine/file_storage.py'])
         self.assertEqual(result.total_errors, 0,
-                         "Found code style errors (and warnings).")
+                        "Found code style errors (and warnings).")
 
 
 class Test_FileStorage(unittest.TestCase):
@@ -75,7 +75,7 @@ class Test_FileStorage(unittest.TestCase):
         if not path.exists("file.json"):
             new_file = FileStorage()
             new_base = BaseModel(id="123", created_at="2021-02-17T22:46:38.86",
-                                 updated_at="2021-02-17T22:46:38.86")
+                                updated_at="2021-02-17T22:46:38.86")
             new_city = City()
             new_file.new(new_base)
             new_file.new(new_city)
@@ -121,7 +121,7 @@ class Test_FileStorage(unittest.TestCase):
         '''Test new method'''
         new_file = FileStorage()
         new_base = BaseModel(id="123", created_at="2021-02-17T22:46:38.883036",
-                             updated_at="2021-02-17T22:46:38.883036")
+                            updated_at="2021-02-17T22:46:38.883036")
         new_city = City()
         new_amenity = Amenity()
         new_user = User()
